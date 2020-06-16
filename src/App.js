@@ -7,10 +7,16 @@ import authService from "./services/authService";
 
 import Login from "./components/loginComponent";
 import Register from "./components/registerComponent";
-import Home from "./components/board/homeComponent";
+import Home from "./pages/board/homeComponent";
 import Profile from "./components/profileComponent";
-import BoardUser from "./components/board/userBoardComponent";
-import BoardAdmin from "./components/board/adminBoardComponent";
+import BoardUser from "./pages/board/userBoardComponent";
+import BoardAdmin from "./pages/board/adminBoardComponent";
+import Cars from "./pages/cars/cars"
+import Brand from "./pages/cars/brand"
+import General from "./pages/cars/general"
+import Specification from "./pages/cars/specification"
+import Img from "./pages/cars/imgCar"
+import Review from "./pages/cars/review"
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +35,6 @@ class App extends Component {
     if (user) {
       this.setState({
         currentUser: user,
-        // showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN")
       });
     }
@@ -78,7 +83,7 @@ class App extends Component {
               </div>
 
               {currentUser ? (
-                  <div className="navbar-nav ml-auto">
+                  <div className="navbar-nav">
                     <li className="nav-item">
                       <Link to={"/profile"} className="nav-link">
                         {currentUser.username}
@@ -91,7 +96,7 @@ class App extends Component {
                     </li>
                   </div>
               ) : (
-                  <div className="navbar-nav ml-auto">
+                  <div className="navbar-nav">
                     <li className="nav-item">
                       <Link to={"/login"} className="nav-link">
                         Login
@@ -114,6 +119,14 @@ class App extends Component {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/profile" component={Profile} />
                 <Route path="/user" component={BoardUser} />
+                <Route path="/cars" component={Cars}  />
+                <Route path="/brand" component={Brand}  />
+                <Route path="/general" component={General}  />
+                <Route path="/specification" component={Specification}  />
+                <Route path="/imgCars" component={Img}  />
+                <Route path="/review" component={Review}  />
+
+
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
             </div>
