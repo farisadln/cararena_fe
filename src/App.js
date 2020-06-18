@@ -17,6 +17,8 @@ import General from "./pages/cars/general"
 import Specification from "./pages/cars/specification"
 import Img from "./pages/cars/imgCar"
 import Review from "./pages/cars/review"
+import Post from "./pages/cars/post/postBrand"
+import Delete from "./pages/cars/delete/deleteBrand"
 
 class App extends Component {
   constructor(props) {
@@ -125,6 +127,8 @@ class App extends Component {
                 <Route path="/specification" component={Specification}  />
                 <Route path="/imgCars" component={Img}  />
                 <Route path="/review" component={Review}  />
+                <Route path="/post" component={Post}  />
+                <Route path="/delete" component={Delete}  />
 
 
                 <Route path="/admin" component={BoardAdmin} />
