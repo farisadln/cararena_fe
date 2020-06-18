@@ -19,6 +19,8 @@ import Img from "./pages/cars/imgCar"
 import Review from "./pages/cars/review"
 import Post from "./pages/cars/post/postBrand"
 import Delete from "./pages/cars/delete/deleteBrand"
+import Put from "./pages/cars/put/putBrand"
+import BrandForm from "./components/Form/Brand/brandForm"
 
 class App extends Component {
   constructor(props) {
@@ -114,7 +116,7 @@ class App extends Component {
               )}
             </nav>
 
-            <div className="container mt-3">
+            <div >
               <Switch>
                 <Route exact path={["/", "/home"]} component={Home} />
                 <Route exact path="/login" component={Login} />
@@ -129,7 +131,8 @@ class App extends Component {
                 <Route path="/review" component={Review}  />
                 <Route path="/post" component={Post}  />
                 <Route path="/delete" component={Delete}  />
-
+                <Route path="/put" component={Put}  />
+                <Route path="/brandInput" component={BrandForm}  />
 
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>

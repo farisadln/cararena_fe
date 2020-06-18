@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import Sidebar from "../board/sidebar";
 
+
 export default class adminBoardComponent extends Component {
   constructor(props) {
     super(props);
