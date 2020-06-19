@@ -3,22 +3,20 @@ import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
 
-export default class brandFrom extends Component {
+export default class generalFrom extends Component {
   constructor() {
     super()
-    this.state = { carBrand: '', logoUrl: '' }
+    this.state = { type: '', hargaOtr: '', brandId: '' }
   }
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('brand :  ' + this.state.carBrand)
-    console.log('url: ' + this.state.logoUrl)
-    const url = 'http://localhost:4000/api/brand'
-    const data = { carBrand: this.state.carBrand, logoUrl: this.state.logoUrl }
+    const url = 'http://127.0.0.1:4000/api/general'
+    const data = { type: this.state.type, hargaOtr: this.state.hargaOtr,  brandId: this.state.brandId}
     fetch(url, {
-      method: 'POST', 
+      method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
@@ -34,20 +32,30 @@ export default class brandFrom extends Component {
             <Col md={{ span: 7, offset: 3 }}>
               <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
-                  <Form.Label>Brand Mobil</Form.Label>
+                  <Form.Label>Tipe Mobil</Form.Label>
                   <Form.Control
-                    placeholder='Brand Mobil'
+                    placeholder='Tipe Mobil'
                     onChange={this.handleChange}
-                    name='carBrand'
+                    name='type'
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Logo Url</Form.Label>
+                  <Form.Label>Harga OTR</Form.Label>
                   <Form.Control
-                    placeholder='ex : https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_aston_martin.png'
+                    placeholder='Harg OTR'
                     onChange={this.handleChange}
-                    name='logoUrl'
+                    name='hargaOtr'
                   />
+                  
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>BrandId</Form.Label>
+                  <Form.Control
+                    placeholder='Id Brand Mobil'
+                    onChange={this.handleChange}
+                    name='brandId'
+                  />
+                  
                 </Form.Group>
                 <Button variant='primary' value='Add' type='submit'>
                   Submit
@@ -60,4 +68,3 @@ export default class brandFrom extends Component {
     )
   }
 }
-

@@ -21,6 +21,12 @@ import Post from "./pages/cars/post/postBrand"
 import Delete from "./pages/cars/delete/deleteBrand"
 import Put from "./pages/cars/put/putBrand"
 import BrandForm from "./components/Form/Brand/brandForm"
+import GeneralForm from "./components/Form/General/generalForm"
+import SpecificationFrom from "./components/Form/Specification/specificationForm"
+import ImgForm from "./components/Form/ImgCar/imgForm"
+import BrandTable from "./components/Table/Brand/brandTable"
+import GeneralTable from "./components/Table/General/generalTable"
+import SpecificationTable from "./components/Table/Specification/specificationTable"
 
 class App extends Component {
   constructor(props) {
@@ -133,7 +139,12 @@ class App extends Component {
                 <Route path="/delete" component={Delete}  />
                 <Route path="/put" component={Put}  />
                 <Route path="/brandForm" component={BrandForm}  />
-
+                <Route path="/generalForm" component={GeneralForm}  />
+                <Route path="/specificationFrom" component={SpecificationFrom}  />
+                <Route path="/imgFrom" component={ImgForm}  />
+                <Route path="/brandTable" component={BrandTable} />
+                <Route path="/generalTable" component={GeneralTable} />
+                <Route path="/specificationTable" component={SpecificationTable} />
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
             </div>
