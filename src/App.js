@@ -132,7 +132,7 @@ class App extends Component {
                 <Route path="/post" component={Post}  />
                 <Route path="/delete" component={Delete}  />
                 <Route path="/put" component={Put}  />
-                <Route path="/brandInput" component={BrandForm}  />
+                <Route path="/brandForm" component={BrandForm}  />
 
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
