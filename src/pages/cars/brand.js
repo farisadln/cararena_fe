@@ -44,6 +44,9 @@ export default class brand extends Component{
                         <td>{data.carBrand}</td>
                         <td>{data.logoUrl}</td>
                         <td>{data.createdAt}</td>
+                        <Button variant='primary' value='Add' type='submit'>
+                      Update
+                    </Button>
                         </tr> 
                     ))
                 ):(

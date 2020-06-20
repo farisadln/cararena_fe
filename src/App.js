@@ -28,6 +28,8 @@ import BrandTable from "./components/Table/Brand/brandTable"
 import GeneralTable from "./components/Table/General/generalTable"
 import SpecificationTable from "./components/Table/Specification/specificationTable"
 
+import EditGeneral from "./components/Form/Brand/editBrand"
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -137,7 +139,7 @@ class App extends Component {
                 <Route path="/review" component={Review}  />
                 <Route path="/post" component={Post}  />
                 <Route path="/delete" component={Delete}  />
-                <Route path="/put" component={Put}  />
+                <Route path="/put" component={EditGeneral}  />
                 <Route path="/brandForm" component={BrandForm}  />
                 <Route path="/generalForm" component={GeneralForm}  />
                 <Route path="/specificationFrom" component={SpecificationFrom}  />

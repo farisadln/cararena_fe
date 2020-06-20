@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Card, Form, Button, Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 
 export default class brandTable extends Component {
@@ -27,8 +28,6 @@ export default class brandTable extends Component {
   }
 
   deleteBrand(id){
-   
-
     if (window.confirm('Hapus neh?')){
       fetch('http://127.0.0.1:4000/api/brand/'+id,{
         method : 'DELETE',
@@ -37,6 +36,7 @@ export default class brandTable extends Component {
       }
     }
   
+    
 
   
   render() {
@@ -63,7 +63,8 @@ export default class brandTable extends Component {
               <td>{data.logoUrl}</td>
               <td>{data.createdAt}</td>
               <td>
-              <Button variant="danger" onClick={()=> this.deleteBrand(data.id)} >Delete</Button>
+              <Button className="btn btn-block" variant="danger" onClick={()=> this.deleteBrand(data.id)} >Delete</Button>
+              <Button className="btn btn-block" variant="primary" >Edit</Button>
               </td>
             </tr>
           ))
