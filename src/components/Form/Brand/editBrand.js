@@ -8,7 +8,7 @@ export default class editBrand extends Component {
       
     super(props)
     this.state = {
-        content : [],
+    
       id: this.props.id,
       carBrand: this.props.carBrand,
       logoUrl: this.props.logoUrl
@@ -19,13 +19,15 @@ export default class editBrand extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://127.0.0.1:4000/api/brand/13')
+    const API_URL = fetch('http://127.0.0.1:4000/api/brand/')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
     }).then((resJson) => {
       this.setState({
-        content: resJson,
+        id : resJson.id,
+        carBrand : resJson.carBrand,
+         logoUrl : resJson.logoUrl
       
       })
     })
@@ -37,7 +39,7 @@ export default class editBrand extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = 'http://localhost:4000/api/brand/13'
+    const url = 'http://localhost:4000/api/brand/'
 
     const data = {
       id: this.state.id,
@@ -65,7 +67,7 @@ export default class editBrand extends Component {
                   <Form.Label>Id</Form.Label>
                   <Form.Control
                     placeholder='Id'
-                    value={this.state.content.id}
+                    value={this.state.id}
                     disabled
                     name='id'
                   />
@@ -76,7 +78,7 @@ export default class editBrand extends Component {
                     placeholder='Brand Mobil'
                     type="text"
                     onChange={this.handleChange}
-                    value={this.state.content.carBrand}
+                    value={this.state.carBrand}
                     name='carBrand'
                   />
                 </Form.Group>
@@ -87,7 +89,7 @@ export default class editBrand extends Component {
                     onChange={this.handleChange}
                     name='logoUrl'
                     type="text"
-                    value={this.state.content.logoUrl}
+                    value={this.state.logoUrl}
                   />
                 </Form.Group>
                 <Button variant='primary' value='Add' type='submit'>
