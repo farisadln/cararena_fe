@@ -22,6 +22,7 @@ export default class brandTable extends Component {
         content: resJson,
       })
     })
+   
   }
 
   deleteBrand(id) {
@@ -73,7 +74,7 @@ export default class brandTable extends Component {
                         onClick={data.id}
                       >
                         Edit
-                      </Button>{' '}
+                      </Button>
                     </Link>
                   </td>
                 </tr>
