@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Card, Form, Button, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
+import {
+  Button,
+  Icon,
+  Menu,
+  Segment,
+  Sidebar,
+  Table,
+  Grid,
+} from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.css'
+import './table.css'
+import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 
 export default class brandTable extends Component {
   constructor(props) {
@@ -22,7 +33,6 @@ export default class brandTable extends Component {
         content: resJson,
       })
     })
-   
   }
 
   deleteBrand(id) {
@@ -39,54 +49,83 @@ export default class brandTable extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Col md={{ span: 3, offset: 3 }}>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Brand Mobil</th>
-                <th>Logo Url</th>
-                <th>Created At</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            {this.state.content.length > 0 ? (
-              this.state.content.map((data) => (
-                <tr key={data.id}>
-                  <td>{data.id}</td>
-                  <td>{data.carBrand}</td>
-                  <td>{data.logoUrl}</td>
-                  <td>{data.createdAt}</td>
-                  <td>
-                    <Button
-                      className='btn btn-block'
-                      variant='danger'
-                      onClick={() => this.deleteBrand(data.id)}
-                    >
-                      Delete
-                    </Button>
+      <div>
+        <Sidebar.Pushable as={Segment}>
+          <SidebarExampleVisible/>
 
-                    <Link to={'/put/' + data.id}>
-                      <Button
-                        className='btn btn-block'
-                        variant='primary'
-                        onClick={data.id}
-                      >
-                        Edit
-                      </Button>
-                    </Link>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={3}>No users</td>
-              </tr>
-            )}
-          </Table>
-        </Col>
-      </Container>
+          <Sidebar.Pusher>
+            <div className='four-hundred-width'>
+              <Table celled compact definition>
+                <Table.Header fullWidth>
+                  <Table.Row>
+                    <Table.HeaderCell />
+                    <Table.HeaderCell colSpan='4'>
+                      <Link to={'/brandForm/'}>
+                        <Button
+                          floated='left'
+                          icon
+                          labelPosition='right'
+                          positive
+                        >
+                          <Icon name='pencil alternate' />
+                          Add Brand
+                        </Button>
+                      </Link>
+                    </Table.HeaderCell>
+                  </Table.Row>
+                  <Table.Row>
+                    <Table.HeaderCell>Id</Table.HeaderCell>
+                    <Table.HeaderCell>Brand Mobil</Table.HeaderCell>
+                    <Table.HeaderCell>Logo Url</Table.HeaderCell>
+                    <Table.HeaderCell>Created At</Table.HeaderCell>
+                    <Table.HeaderCell textAlign='center'>
+                      Action
+                    </Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                  {this.state.content.length > 0 ? (
+                    this.state.content.map((data) => (
+                      <tr key={data.id}>
+                        <Table.Cell>{data.id}</Table.Cell>
+                        <Table.Cell>{data.carBrand}</Table.Cell>
+                        <Table.Cell>{data.logoUrl}</Table.Cell>
+                        <Table.Cell>{data.createdAt}</Table.Cell>
+                        <Table.Cell textAlign='center'>
+                          <Button
+                            className='button-size'
+                            color='red'
+                            attached='left'
+                            onClick={() => this.deleteBrand(data.id)}
+                          >
+                            Delete
+                          </Button>
+                          <Link to={'/put/' + data.id}>
+                            <Button
+                              className='button-size'
+                              color='blue'
+                              Button
+                              attached='right'
+                              onClick={data.id}
+                            >
+                              Edit
+                            </Button>
+                          </Link>
+                        </Table.Cell>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={3}>No users</td>
+                    </tr>
+                  )}
+                </Table.Body>
+              </Table>
+            </div>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
+      </div>
     )
   }
 }

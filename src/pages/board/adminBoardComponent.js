@@ -4,7 +4,7 @@ import userService from "../../services/userService";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-import Sidebar from "../board/sidebar";
+
 
 
 export default class adminBoardComponent extends Component {
@@ -41,7 +41,7 @@ export default class adminBoardComponent extends Component {
       <Container fluid>
         <Row>
           <Col md={2}>
-            <Sidebar></Sidebar>
+
           </Col>
           <Col md={10}>
             <Form>

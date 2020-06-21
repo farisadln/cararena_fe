@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
 
@@ -18,7 +19,7 @@ export default class brandFrom extends Component {
     const url = 'http://localhost:4000/api/brand'
     const data = { carBrand: this.state.carBrand, logoUrl: this.state.logoUrl }
     fetch(url, {
-      method: 'POST', 
+      method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
@@ -29,6 +30,7 @@ export default class brandFrom extends Component {
   render() {
     return (
       <Container fluid>
+
         <Row>
           <div className='col-md-12'>
             <Col md={{ span: 7, offset: 3 }}>
@@ -60,4 +62,3 @@ export default class brandFrom extends Component {
     )
   }
 }
-

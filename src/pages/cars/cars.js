@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Sidebar from '../board/sidebar'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Card, Button, CardColumns, Container } from 'react-bootstrap'
 
