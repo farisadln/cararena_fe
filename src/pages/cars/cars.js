@@ -37,13 +37,13 @@ export default class cars extends Component {
   }
   render() {
     return (
-      <Sidebar.Pushable as={Segment}>
+      <Sidebar.Pushable  className="top-section pusher" as={Segment}>
         <SidebarExampleVisible />
 
         <Sidebar.Pusher>
           <Segment basic>
             <div className='four-hundred-width'>
-              <Card.Group itemsPerRow={3}>
+              <Card.Group itemsPerRow={4}>
                 {this.state.content.length > 0 ? (
                   this.state.content.map((data) => (
                     <Card>

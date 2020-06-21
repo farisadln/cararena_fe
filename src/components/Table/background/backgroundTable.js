@@ -15,7 +15,7 @@ import 'semantic-ui-css/semantic.css'
 import '../table.css'
 import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 
-export default class brandTable extends Component {
+export default class backgroundTable extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,7 +24,7 @@ export default class brandTable extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://127.0.0.1:4000/api/brand')
+      const API_URL = fetch('http://127.0.0.1:4000/api/backgrounds')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -37,7 +37,7 @@ export default class brandTable extends Component {
 
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://127.0.0.1:4000/api/brand/' + id, {
+      fetch('http://127.0.0.1:4000/api/backgrounds/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -54,11 +54,11 @@ export default class brandTable extends Component {
           <SidebarExampleVisible/>
 
           <Sidebar.Pusher>
-            <div className='four-hundred-width'>
-              <Table celled compact definition>
+            <div className='two-hundred-width'>
+              <Table className='two-hundred-width' celled compact definition>
                 <Table.Header fullWidth>
                   <Table.Row>
-                    <Table.HeaderCell />
+
                     <Table.HeaderCell colSpan='4'>
                       <Link to={'/brandForm/'}>
                         <Button
@@ -74,11 +74,12 @@ export default class brandTable extends Component {
                     </Table.HeaderCell>
                   </Table.Row>
                   <Table.Row>
-                    <Table.HeaderCell>Id</Table.HeaderCell>
-                    <Table.HeaderCell>Brand Mobil</Table.HeaderCell>
-                    <Table.HeaderCell>Logo Url</Table.HeaderCell>
+                    <Table.HeaderCell >Id</Table.HeaderCell>
+                    <Table.HeaderCell >Background url_img1</Table.HeaderCell>
+                    <Table.HeaderCell>Background url_img2</Table.HeaderCell>
+                    <Table.HeaderCell>Background url_img3</Table.HeaderCell>
                     <Table.HeaderCell>Created At</Table.HeaderCell>
-                    <Table.HeaderCell textAlign='center'>
+                    <Table.HeaderCell  textAlign='center'>
                       Action
                     </Table.HeaderCell>
                   </Table.Row>
@@ -88,9 +89,10 @@ export default class brandTable extends Component {
                   {this.state.content.length > 0 ? (
                     this.state.content.map((data) => (
                       <tr key={data.id}>
-                        <Table.Cell>{data.id}</Table.Cell>
-                        <Table.Cell>{data.carBrand}</Table.Cell>
-                        <Table.Cell>{data.logoUrl}</Table.Cell>
+                        <Table.Cell >{data.id}</Table.Cell>
+                        <Table.Cell >{data.url_img1}</Table.Cell>
+                        <Table.Cell>{data.url_img2}</Table.Cell>
+                        <Table.Cell>{data.url_img3}</Table.Cell>
                         <Table.Cell>{data.createdAt}</Table.Cell>
                         <Table.Cell textAlign='center'>
                           <Button

@@ -15,7 +15,7 @@ import Cars from "./pages/cars/cars"
 import Brand from "./pages/cars/brand"
 import General from "./pages/cars/general"
 import Specification from "./pages/cars/specification"
-import Img from "./pages/cars/imgCar"
+
 import Review from "./pages/cars/review"
 import BrandForm from "./components/Form/Brand/brandForm"
 import GeneralForm from "./components/Form/General/generalForm"
@@ -24,8 +24,13 @@ import ImgForm from "./components/Form/ImgCar/imgForm"
 import BrandTable from "./components/Table/Brand/brandTable"
 import GeneralTable from "./components/Table/General/generalTable"
 import SpecificationTable from "./components/Table/Specification/specificationTable"
+import ImgTable from "./components/Table/ImgCar/imgTable"
+import ReviewTable from "./components/Table/Review/reviewTable"
+import SpecTable from "./components/Table/Specification/specificationTable"
+import BackgroundTable from "./components/Table/background/backgroundTable"
 
 import EditBrand from "./components/Form/Brand/editBrand"
+
 
 class App extends Component {
   constructor(props) {
@@ -128,12 +133,12 @@ class App extends Component {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/profile" component={Profile} />
                 <Route path="/user" component={BoardUser} />
-                <Route path="/cars" component={Cars}  />
+                <Route path="/dasborad" component={Cars}  />
                 <Route path="/brand" component={Brand}  />
                 <Route path="/general" component={General}  />
-                <Route path="/specification" component={Specification}  />
-                <Route path="/imgCars" component={Img}  />
-                <Route path="/review" component={Review}  />
+                <Route path="/specification" component={SpecTable}  />
+                <Route path="/imgCars" component={ImgTable}  />
+                <Route path="/review" component={ReviewTable}  />
 
                 <Route path="/put" component={EditBrand}  />
                 <Route path="/brandForm" component={BrandForm}  />
@@ -143,6 +148,7 @@ class App extends Component {
                 <Route path="/brandTable" component={BrandTable} />
                 <Route path="/generalTable" component={GeneralTable} />
                 <Route path="/specificationTable" component={SpecificationTable} />
+                <Route path="/backgroundTable" component={BackgroundTable} />
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
             </div>
