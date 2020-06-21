@@ -1,7 +1,19 @@
 import React, { Component } from 'react'
+import './size.css'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Card, Button, CardColumns, Container } from 'react-bootstrap'
+import {
+  Button,
+  Icon,
+  Menu,
+  Segment,
+  Sidebar,
+  Table,
+  Grid,
+  Card,
+  Image,
+} from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.css'
+import SidebarExampleVisible from '../../components/Layout/SidebarExampleVisible'
 
 export default class cars extends Component {
   constructor(props) {
@@ -25,26 +37,35 @@ export default class cars extends Component {
   }
   render() {
     return (
-      <Container fluid>
-        <CardColumns style={{ width: '60rem' }}>
-          {this.state.content.length > 0 ? (
-            this.state.content.map((data) => (
-              <Card>
-                <Card.Img variant='top' src={data.img1} />
-                <Card.Body>
-                  <Card.Title>{data.type}</Card.Title>
-                  <Card.Text>{data.harga_otr}</Card.Text>
-                </Card.Body>
-                <Button variant='primary'>Details</Button>
-              </Card>
-            ))
-          ) : (
-            <tr>
-              <td colSpan={3}>No users</td>
-            </tr>
-          )}
-        </CardColumns>
-      </Container>
+      <Sidebar.Pushable as={Segment}>
+        <SidebarExampleVisible />
+
+        <Sidebar.Pusher>
+          <Segment basic>
+            <div className='four-hundred-width'>
+              <Card.Group itemsPerRow={3}>
+                {this.state.content.length > 0 ? (
+                  this.state.content.map((data) => (
+                    <Card>
+                      <Image src={data.img1} wrapped ui={false} />
+
+                      <Card.Content>
+                        <Card.Header>{data.type}</Card.Header>
+                        <Card.Meta>{data.harga_otr}</Card.Meta>
+                      </Card.Content>
+                      <Button variant='primary'>Details</Button>
+                    </Card>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={3}>No users</td>
+                  </tr>
+                )}
+              </Card.Group>
+            </div>
+          </Segment>
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
     )
   }
 }
