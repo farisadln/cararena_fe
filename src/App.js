@@ -12,11 +12,7 @@ import Profile from "./components/profileComponent";
 import BoardUser from "./pages/board/userBoardComponent";
 import BoardAdmin from "./pages/board/adminBoardComponent";
 import Cars from "./pages/cars/cars"
-import Brand from "./pages/cars/brand"
-import General from "./pages/cars/general"
-import Specification from "./pages/cars/specification"
 
-import Review from "./pages/cars/review"
 import BrandForm from "./components/Form/Brand/brandForm"
 import GeneralForm from "./components/Form/General/generalForm"
 import SpecificationFrom from "./components/Form/Specification/specificationForm"
@@ -28,8 +24,15 @@ import ImgTable from "./components/Table/ImgCar/imgTable"
 import ReviewTable from "./components/Table/Review/reviewTable"
 import SpecTable from "./components/Table/Specification/specificationTable"
 import BackgroundTable from "./components/Table/background/backgroundTable"
-
+import DetailsCar from "./pages/cars/detailsCar"
 import EditBrand from "./components/Form/Brand/editBrand"
+import EditBackground from "./components/Form/Background/backgroundEdit"
+import EditGeneral from "./components/Form/General/editGeneral"
+import UserTable from "./components/Table/user/userTable"
+import AddAdmin from "./pages/board/addAdmin"
+import ChangePassword from "./components/Table/user/changePassword"
+import BackgroundForm from "./components/Form/Background/backgroundForm"
+import EditSpec from "./components/Form/Specification/editSpecification"
 
 
 class App extends Component {
@@ -134,21 +137,32 @@ class App extends Component {
                 <Route exact path="/profile" component={Profile} />
                 <Route path="/user" component={BoardUser} />
                 <Route path="/dasborad" component={Cars}  />
-                <Route path="/brand" component={Brand}  />
-                <Route path="/general" component={General}  />
+
                 <Route path="/specification" component={SpecTable}  />
-                <Route path="/imgCars" component={ImgTable}  />
-                <Route path="/review" component={ReviewTable}  />
+
 
                 <Route path="/put" component={EditBrand}  />
                 <Route path="/brandForm" component={BrandForm}  />
                 <Route path="/generalForm" component={GeneralForm}  />
-                <Route path="/specificationFrom" component={SpecificationFrom}  />
-                <Route path="/imgFrom" component={ImgForm}  />
+                <Route path="/specificationForm" component={SpecificationFrom}  />
+                <Route path="/imgForm" component={ImgForm}  />
+                <Route path="/backgroundForm" component={BackgroundForm}/>
+                <Route path="/editBackground" component={EditBackground}/>
+                <Route path="/details" component={DetailsCar} />
+                <Route path="/editSpec" component={EditSpec} />
+                <Route path="/editGeneral" component={EditGeneral}/>
                 <Route path="/brandTable" component={BrandTable} />
                 <Route path="/generalTable" component={GeneralTable} />
                 <Route path="/specificationTable" component={SpecificationTable} />
                 <Route path="/backgroundTable" component={BackgroundTable} />
+                <Route path="/review" component={ReviewTable}  />
+                <Route path="/userGet" component={UserTable}  />
+                <Route path="/imgCarsTable" component={ImgTable}  />
+
+                <Route path="/addAdmin" component={AddAdmin}/>
+                <Route path="/changePassword" component={ChangePassword}/>
+
+
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
             </div>

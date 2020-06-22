@@ -14,6 +14,7 @@ import {
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import SidebarExampleVisible from '../../components/Layout/SidebarExampleVisible'
+import { Link } from 'react-router-dom'
 
 export default class cars extends Component {
   constructor(props) {
@@ -53,7 +54,9 @@ export default class cars extends Component {
                         <Card.Header>{data.type}</Card.Header>
                         <Card.Meta>{data.harga_otr}</Card.Meta>
                       </Card.Content>
-                      <Button variant='primary'>Details</Button>
+                      <Link to={'/details/' + data.id}>
+                      <Button attached='bottom'>Details</Button>
+                      </Link>
                     </Card>
                   ))
                 ) : (

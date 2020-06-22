@@ -44,8 +44,8 @@ export default class generalTable extends Component {
             <Table.Header fullWidth>
               <Table.Row>
 
-                <Table.HeaderCell colSpan='4'>
-                  <Link to={'/brandForm/'}>
+                <Table.HeaderCell colSpan='5'>
+                  <Link to={'/generalForm/'}>
                     <Button
                       floated='left'
                       icon
@@ -53,7 +53,7 @@ export default class generalTable extends Component {
                       positive
                     >
                       <Icon name='pencil alternate' />
-                      Add Brand
+                      Add Data
                     </Button>
                   </Link>
                 </Table.HeaderCell>
@@ -85,7 +85,7 @@ export default class generalTable extends Component {
                     >
                       Delete
                     </Button>
-                    <Link to={'/put/' + data.id}>
+                    <Link to={'/editGeneral/' + data.id}>
                       <Button
                         className='button-size'
                         color='blue'

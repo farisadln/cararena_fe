@@ -10,20 +10,23 @@ import {
 } from 'semantic-ui-react'
 import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 
-export default class brandFrom extends Component {
+export default class backgroundFrom extends Component {
   constructor() {
     super()
-    this.state = { carBrand: '', logoUrl: '' }
+    this.state = { type: '', hargaOtr: '', brandId: '' }
   }
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('brand :  ' + this.state.carBrand)
-    console.log('url: ' + this.state.logoUrl)
-    const url = 'http://localhost:4000/api/brand'
-    const data = { carBrand: this.state.carBrand, logoUrl: this.state.logoUrl }
+
+    const url = 'http://localhost:4000/api/general'
+    const data = {
+      type: this.state.type,
+      hargaOtr: this.state.hargaOtr,
+      brandId: this.state.brandId,
+    }
     fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
@@ -47,19 +50,27 @@ export default class brandFrom extends Component {
             </Header>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
-                <label>Brand Mobil</label>
+                <label>Tipe Mobil</label>
                 <input
-                  placeholder='Brand Mobil'
+                  placeholder='Tipe Mobil'
                   onChange={this.handleChange}
-                  name='carBrand'
+                  name='type'
                 />
               </Form.Field>
               <Form.Field>
-                <label>Logo Url</label>
+                <label>Harga OTR</label>
                 <input
-                  placeholder='ex : https://d2pa5gi5n2e1an.cloudfront.net/webp/id/images/maker/cars/S_aston_martin.png'
+                  placeholder='hargaOtr'
                   onChange={this.handleChange}
-                  name='logoUrl'
+                  name='hargaOtr'
+                />
+              </Form.Field>
+              <Form.Field>
+                <label>Brand Id</label>
+                <input
+                  placeholder='brandId'
+                  onChange={this.handleChange}
+                  name='brandId'
                 />
               </Form.Field>
 

@@ -41,11 +41,11 @@ export default class imgCar extends Component {
 
         <Sidebar.Pusher>
           <div className='four-hundred-width'>
-            <Table celled compact definition>
+            <Table celled fixed singleLine>
               <Table.Header fullWidth>
                 <Table.Row>
-                  <Table.HeaderCell />
-                  <Table.HeaderCell colSpan='4'>
+
+                  <Table.HeaderCell colSpan='6'>
                     <Link to={'/brandForm/'}>
                       <Button
                         floated='left'
@@ -54,16 +54,16 @@ export default class imgCar extends Component {
                         positive
                       >
                         <Icon name='pencil alternate' />
-                        Add Brand
+                        Add Data
                       </Button>
                     </Link>
                   </Table.HeaderCell>
                 </Table.Row>
                 <Table.Row>
-                  <Table.HeaderCell>Id</Table.HeaderCell>
-                  <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                  <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                  <Table.HeaderCell>Url Img3</Table.HeaderCell>
+                  <Table.HeaderCell className="size-table"> Id</Table.HeaderCell>
+                  <Table.HeaderCell >Url Img1</Table.HeaderCell>
+                  <Table.HeaderCell >Url Img2</Table.HeaderCell>
+                  <Table.HeaderCell >Url Img3</Table.HeaderCell>
                   <Table.HeaderCell>Created At</Table.HeaderCell>
                   <Table.HeaderCell textAlign='center'>
                     Action
@@ -75,8 +75,8 @@ export default class imgCar extends Component {
                 {this.state.content.length > 0 ? (
                   this.state.content.map((data) => (
                     <tr key={data.id}>
-                      <Table.Cell>{data.id}</Table.Cell>
-                      <Table.Cell>{data.img1}</Table.Cell>
+                      <Table.Cell >{data.id}</Table.Cell>
+                      <Table.Cell >{data.img1}</Table.Cell>
                       <Table.Cell>{data.img2}</Table.Cell>
                       <Table.Cell>{data.img3}</Table.Cell>
                       <Table.Cell>{data.createdAt}</Table.Cell>

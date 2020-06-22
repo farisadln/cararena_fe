@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
+import { Button, Checkbox, Form, Sidebar, Segment, Header } from 'semantic-ui-react'
+import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 
-export default class generalFrom extends Component {
+export default class generalForm extends Component {
   constructor() {
     super()
     this.state = { type: '', hargaOtr: '', brandId: '' }
@@ -26,45 +26,48 @@ export default class generalFrom extends Component {
   }
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <div className='col-md-12'>
-            <Col md={{ span: 7, offset: 3 }}>
+      <Sidebar.Pushable className="top-section pusher" as={Segment}>
+        <SidebarExampleVisible/>
+        <Sidebar.Pusher className='four-hundred-width'>
+          <Header as='h2'>
+            Account Settings
+            <Header.Subheader>
+              Manage your account settings and set email preferences
+            </Header.Subheader>
+          </Header>
               <Form onSubmit={this.handleSubmit}>
-                <Form.Group>
-                  <Form.Label>Tipe Mobil</Form.Label>
-                  <Form.Control
+                <Form.Field>
+                  <label>Tipe Mobil</label>
+                  <input
                     placeholder='Tipe Mobil'
                     onChange={this.handleChange}
                     name='type'
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Harga OTR</Form.Label>
-                  <Form.Control
+                </Form.Field>
+                <Form.Field>
+                  <label>Harga OTR</label>
+                  <input
                     placeholder='Harg OTR'
                     onChange={this.handleChange}
                     name='hargaOtr'
                   />
-                  
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>BrandId</Form.Label>
-                  <Form.Control
+
+                </Form.Field>
+                <Form.Field>
+                  <label>BrandId</label>
+                  <input
                     placeholder='Id Brand Mobil'
                     onChange={this.handleChange}
                     name='brandId'
                   />
-                  
-                </Form.Group>
+
+                </Form.Field>
                 <Button variant='primary' value='Add' type='submit'>
                   Submit
                 </Button>
               </Form>
-            </Col>
-          </div>
-        </Row>
-      </Container>
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
     )
   }
 }

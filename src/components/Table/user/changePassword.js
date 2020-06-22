@@ -1,31 +1,44 @@
-import React, { Component, useState, useEffect } from 'react'
-import { withRouter } from 'react-router'
+import React, { Component } from 'react'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Card, Form, Button, Table } from 'react-bootstrap'
-export default class editSpecification extends Component {
+import {
+  Button,
+  Icon,
+  Menu,
+  Segment,
+  Sidebar,
+  Table,
+  Grid,
+} from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.css'
+import '../table.css'
+import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
+import { Link } from 'react-router-dom'
+import { Col, Container, Form, Row } from 'react-bootstrap'
 
+export default class changePassword extends Component {
   constructor(props) {
     super(props)
     this.state = {
       id: this.props.id,
-      kapasistasMesin: this.props.kapasistasMesin,
-      jmlSilinder: this.props.jmlSilinder,
+      username: this.props.carBrand,
+      email: this.props.logoUrl,
+      password: this.props.password
     }
   }
 
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://localhost:4000/api/specification/' + pathArray)
+    const API_URL = fetch('http://127.0.0.1:4000/api/auth/user/'+pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
     }).then((resJson) => {
       this.setState({
         id: resJson.id,
-        kapasistasMesin: resJson.kapasistasMesin,
-        jmlSilinder: resJson.jmlSilinder,
+        username: resJson.username,
+        email: resJson.email,
+        password : resJson.password,
       })
     })
   }
@@ -37,12 +50,12 @@ export default class editSpecification extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://localhost:4000/api/specification/' + pathArray
+    const url = 'http://localhost:4000/api/auth/user/' + pathArray
 
     const data = {
       id: this.state.id,
-      kapasistasMesin: this.state.kapasistasMesin,
-      jmlSilinder: this.state.jmlSilinder,
+      username: this.state.username,
+      password: this.state.password,
     }
     fetch(url, {
       method: 'PUT',
@@ -53,6 +66,7 @@ export default class editSpecification extends Component {
       .catch((error) => console.error('Error:', error))
       .then((response) => console.log('Success:', response))
   }
+
   render() {
     return (
       <Container fluid>
@@ -71,23 +85,21 @@ export default class editSpecification extends Component {
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Brand Mobil</Form.Label>
+                  <Form.Label>Username</Form.Label>
                   <Form.Control
-                    placeholder='kapasistasMesin'
                     type='text'
                     onChange={this.handleChange}
-                    value={this.state.kapasistasMesin}
-                    name='kapasistasMesin'
+                    value={this.state.username}
+                    name='carBrand'
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>jmlSilinder</Form.Label>
+                  <Form.Label>passowrd</Form.Label>
                   <Form.Control
-                    placeholder='jmlSilinder'
                     onChange={this.handleChange}
                     name='logoUrl'
                     type='text'
-                    value={this.state.jmlSilinder}
+                    value={this.state.password}
                   />
                 </Form.Group>
                 <Button variant='primary' value='Add' type='submit'>
@@ -100,4 +112,5 @@ export default class editSpecification extends Component {
       </Container>
     )
   }
+
 }

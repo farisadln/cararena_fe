@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router-dom'
-
 import {
   Button,
   Icon,
@@ -10,22 +8,23 @@ import {
   Sidebar,
   Table,
   Grid,
-  Image,
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import '../table.css'
 import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
+import { Link } from 'react-router-dom'
 
-export default class backgroundTable extends Component {
+export default class userTable extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       content: [],
     }
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://127.0.0.1:4000/api/backgrounds')
+    const API_URL = fetch('http://localhost:4000/api/auth/user')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -35,10 +34,9 @@ export default class backgroundTable extends Component {
       })
     })
   }
-
-  deleteBrand(id) {
+  deleteBrand(username) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://127.0.0.1:4000/api/backgrounds/' + id, {
+      fetch('http://localhost:4000/api/auth/user/' + username, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -51,27 +49,21 @@ export default class backgroundTable extends Component {
   render() {
     return (
       <div>
-        <Sidebar.Pushable className='top-section pusher' as={Segment}>
-          <SidebarExampleVisible />
+        <Sidebar.Pushable className="top-section pusher" as={Segment}>
+          <SidebarExampleVisible/>
 
           <Sidebar.Pusher>
-            <div className='two-hundred-width'>
-              <Table
-                className='two-hundred-width'
-                fixed
-                celled
-                compact
-                definition
-              >
+            <div className='four-hundred-width'>
+              <Table celled compact definition>
                 <Table.Header fullWidth>
                   <Table.Row>
-                    <Table.HeaderCell colSpan='6'></Table.HeaderCell>
+
+
                   </Table.Row>
                   <Table.Row>
                     <Table.HeaderCell>Id</Table.HeaderCell>
-                    <Table.HeaderCell>Background url_img1</Table.HeaderCell>
-                    <Table.HeaderCell>Background url_img2</Table.HeaderCell>
-                    <Table.HeaderCell>Background url_img3</Table.HeaderCell>
+                    <Table.HeaderCell>Email</Table.HeaderCell>
+                    <Table.HeaderCell>Username</Table.HeaderCell>
                     <Table.HeaderCell>Created At</Table.HeaderCell>
                     <Table.HeaderCell textAlign='center'>
                       Action
@@ -84,32 +76,25 @@ export default class backgroundTable extends Component {
                     this.state.content.map((data) => (
                       <tr key={data.id}>
                         <Table.Cell>{data.id}</Table.Cell>
-                        <Table.Cell>
-                          <Image src={data.url_img1} size='medium' />
-                        </Table.Cell>
-                        <Table.Cell>
-                          <Image src={data.url_img2} size='medium' />
-                        </Table.Cell>
-                        <Table.Cell>
-                          <Image src={data.url_img3} size='medium ' />
-                        </Table.Cell>
+                        <Table.Cell>{data.username}</Table.Cell>
+                        <Table.Cell>{data.email}</Table.Cell>
                         <Table.Cell>{data.createdAt}</Table.Cell>
                         <Table.Cell textAlign='center'>
                           <Button
                             className='button-size'
                             color='red'
                             attached='left'
-                            onClick={() => this.deleteBrand(data.id)}
+                            onClick={() => this.deleteBrand(data.username)}
                           >
                             Delete
                           </Button>
-                          <Link to={'/editBackground/' + data.id}>
+                          <Link to={'/changePassword/' + data.username}>
                             <Button
                               className='button-size'
                               color='blue'
                               Button
                               attached='right'
-                              onClick={data.id}
+                              onClick={data.username}
                             >
                               Edit
                             </Button>
@@ -130,4 +115,5 @@ export default class backgroundTable extends Component {
       </div>
     )
   }
+
 }

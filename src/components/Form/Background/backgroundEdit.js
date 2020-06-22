@@ -3,29 +3,32 @@ import { withRouter } from 'react-router'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Card, Form, Button, Table } from 'react-bootstrap'
-export default class editSpecification extends Component {
 
+export default class backgroundEdit extends Component {
   constructor(props) {
     super(props)
     this.state = {
       id: this.props.id,
-      kapasistasMesin: this.props.kapasistasMesin,
-      jmlSilinder: this.props.jmlSilinder,
+      url_img1: this.props.url_img1,
+      url_img2: this.props.url_img2,
+      url_img3: this.props.url_img3,
     }
   }
 
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://localhost:4000/api/specification/' + pathArray)
+    const API_URL = fetch('http://localhost:4000/api/backgrounds/'+pathArray)
+    console.log(API_URL)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
     }).then((resJson) => {
       this.setState({
         id: resJson.id,
-        kapasistasMesin: resJson.kapasistasMesin,
-        jmlSilinder: resJson.jmlSilinder,
+        url_img1: resJson.url_img1,
+        url_img2: resJson.url_img2,
+        url_img3: resJson.url_img3
       })
     })
   }
@@ -37,12 +40,13 @@ export default class editSpecification extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://localhost:4000/api/specification/' + pathArray
+    const url = 'http://localhost:4000/api/backgrounds/' + pathArray
 
     const data = {
       id: this.state.id,
-      kapasistasMesin: this.state.kapasistasMesin,
-      jmlSilinder: this.state.jmlSilinder,
+      url_img1: this.state.url_img1,
+      url_img2: this.state.url_img2,
+      url_img3: this.state.url_img3,
     }
     fetch(url, {
       method: 'PUT',
@@ -53,6 +57,7 @@ export default class editSpecification extends Component {
       .catch((error) => console.error('Error:', error))
       .then((response) => console.log('Success:', response))
   }
+
   render() {
     return (
       <Container fluid>
@@ -71,23 +76,33 @@ export default class editSpecification extends Component {
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Brand Mobil</Form.Label>
+                  <Form.Label>Img1</Form.Label>
                   <Form.Control
-                    placeholder='kapasistasMesin'
+                    placeholder='Img1'
                     type='text'
                     onChange={this.handleChange}
-                    value={this.state.kapasistasMesin}
-                    name='kapasistasMesin'
+                    value={this.state.url_img1}
+                    name='carBrand'
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>jmlSilinder</Form.Label>
+                  <Form.Label>Img1</Form.Label>
                   <Form.Control
-                    placeholder='jmlSilinder'
+                    placeholder='Img2'
                     onChange={this.handleChange}
                     name='logoUrl'
                     type='text'
-                    value={this.state.jmlSilinder}
+                    value={this.state.url_img2}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Img3</Form.Label>
+                  <Form.Control
+                    placeholder='Img3'
+                    onChange={this.handleChange}
+                    name='logoUrl'
+                    type='text'
+                    value={this.state.url_img3}
                   />
                 </Form.Group>
                 <Button variant='primary' value='Add' type='submit'>

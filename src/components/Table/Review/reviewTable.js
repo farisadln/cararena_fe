@@ -27,7 +27,7 @@ export default class reviewTable extends Component{
 
     componentDidMount() {
 
-        const API_URL = fetch('http://139.162.28.184:4000/api/review');
+        const API_URL = fetch('http:///127.0.0.1:4000/api/review');
 
         API_URL.then(res => {
             if(res.status === 200)
@@ -42,6 +42,17 @@ export default class reviewTable extends Component{
 
 
         }
+  deleteBrand(id) {
+    if (window.confirm('Hapus neh?')) {
+      fetch('http://127.0.0.1:4000/api/review/' + id, {
+        method: 'DELETE',
+        header: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+    }
+  }
         render(){
             return(
               <Sidebar.Pushable className="top-section pusher" as={Segment}>
@@ -49,29 +60,19 @@ export default class reviewTable extends Component{
 
                 <Sidebar.Pusher>
                   <div className='four-hundred-width'>
-                    <Table celled compact definition>
+                    <Table celled fixed singleLine>
                       <Table.Header fullWidth>
                         <Table.Row>
-                          <Table.HeaderCell />
-                          <Table.HeaderCell colSpan='4'>
-                            <Link to={'/brandForm/'}>
-                              <Button
-                                floated='left'
-                                icon
-                                labelPosition='right'
-                                positive
-                              >
-                                <Icon name='pencil alternate' />
-                                Add Brand
-                              </Button>
-                            </Link>
+
+                          <Table.HeaderCell colSpan='5'>
+
                           </Table.HeaderCell>
                         </Table.Row>
                         <Table.Row>
                           <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
+                          <Table.HeaderCell>Username</Table.HeaderCell>
+                          <Table.HeaderCell>Komentar</Table.HeaderCell>
+
                           <Table.HeaderCell>Created At</Table.HeaderCell>
                           <Table.HeaderCell textAlign='center'>
                             Action
@@ -86,28 +87,17 @@ export default class reviewTable extends Component{
                               <Table.Cell>{data.id}</Table.Cell>
                               <Table.Cell>{data.name}</Table.Cell>
                               <Table.Cell>{data.review}</Table.Cell>
-                              <Table.Cell>{data.img3}</Table.Cell>
+
                               <Table.Cell>{data.createdAt}</Table.Cell>
                               <Table.Cell textAlign='center'>
                                 <Button
-                                  className='button-size'
-                                  color='red'
-                                  attached='left'
+
+                                  negative
                                   onClick={() => this.deleteBrand(data.id)}
                                 >
                                   Delete
                                 </Button>
-                                <Link to={'/put/' + data.id}>
-                                  <Button
-                                    className='button-size'
-                                    color='blue'
-                                    Button
-                                    attached='right'
-                                    onClick={data.id}
-                                  >
-                                    Edit
-                                  </Button>
-                                </Link>
+
                               </Table.Cell>
                             </tr>
                           ))

@@ -68,7 +68,7 @@ export default class brandTable extends Component {
                           positive
                         >
                           <Icon name='pencil alternate' />
-                          Add Brand
+                          Add Data
                         </Button>
                       </Link>
                     </Table.HeaderCell>

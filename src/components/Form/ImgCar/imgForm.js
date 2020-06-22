@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
+import { Button, Checkbox, Form, Sidebar, Segment, Header } from 'semantic-ui-react'
+import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 
-export default class imgFrom extends Component {
+export default class imgForm extends Component {
   constructor() {
     super()
     this.state = { img1: '', img2: '', img3: '', specificationId:'' }
@@ -26,51 +26,47 @@ export default class imgFrom extends Component {
   }
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <div className='col-md-12'>
-            <Col md={{ span: 7, offset: 3 }}>
+      <Sidebar.Pushable className="top-section pusher" as={Segment}>
+        <SidebarExampleVisible/>
+        <Sidebar.Pusher className='four-hundred-width'>
+        <Header as='h2'>
+            Account Settings
+            <Header.Subheader>
+              Manage your account settings and set email preferences
+            </Header.Subheader>
+          </Header>
               <Form onSubmit={this.handleSubmit}>
-                <Form.Group>
-                  <Form.Label>img1</Form.Label>
-                  <Form.Control
+              <Form>
+                  <label>img1</label>
+                  <input
                     placeholder='img1'
                     onChange={this.handleChange}
                     name='img1'
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>img2</Form.Label>
-                  <Form.Control
+                </Form>
+                <Form>
+                  <label>img2</label>
+                  <input
                     placeholder='img2'
                     onChange={this.handleChange}
                     name='img2'
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>img3</Form.Label>
-                  <Form.Control
+                </Form>
+                <Form>
+                  <label>img3</label>
+                  <input
                     placeholder='img3'
                     onChange={this.handleChange}
                     name='img3'
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>specificationId</Form.Label>
-                  <Form.Control
-                    placeholder='specificationId'
-                    onChange={this.handleChange}
-                    name='specificationId'
-                  />
-                </Form.Group>
+                </Form>
                 <Button variant='primary' value='Add' type='submit'>
                   Submit
                 </Button>
               </Form>
-            </Col>
-          </div>
-        </Row>
-      </Container>
+
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
     )
   }
 }

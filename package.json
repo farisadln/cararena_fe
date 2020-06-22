@@ -10,6 +10,7 @@
     "antd": "^4.3.4",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "pure-react-carousel": "^1.27.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-bootstrap-sidebar": "0.0.1",

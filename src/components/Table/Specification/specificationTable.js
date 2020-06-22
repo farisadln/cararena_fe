@@ -45,12 +45,12 @@ export default class specification extends Component{
 
                 <Sidebar.Pusher>
                   <div className='four-hundred-width'>
-                    <Table celled compact definition>
+                    <Table celled compact definition fixed>
                       <Table.Header fullWidth>
                         <Table.Row>
                           <Table.HeaderCell />
-                          <Table.HeaderCell colSpan='4'>
-                            <Link to={'/brandForm/'}>
+                          <Table.HeaderCell colSpan='28'>
+                            <Link to={'/specificationForm/'}>
                               <Button
                                 floated='left'
                                 icon
@@ -58,42 +58,41 @@ export default class specification extends Component{
                                 positive
                               >
                                 <Icon name='pencil alternate' />
-                                Add Brand
+                                Add Data
                               </Button>
                             </Link>
                           </Table.HeaderCell>
                         </Table.Row>
                         <Table.Row>
                           <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
-                          <Table.HeaderCell>Created At</Table.HeaderCell>
-                          <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
-                          <Table.HeaderCell>Created At</Table.HeaderCell>
-                          <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
-                          <Table.HeaderCell>Created At</Table.HeaderCell>
-                          <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
-                          <Table.HeaderCell>Created At</Table.HeaderCell>
-                          <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
-                          <Table.HeaderCell>Created At</Table.HeaderCell>
-                          <Table.HeaderCell>Id</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img1</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img2</Table.HeaderCell>
-                          <Table.HeaderCell>Url Img3</Table.HeaderCell>
-                          <Table.HeaderCell>Created At</Table.HeaderCell>
+                          <Table.HeaderCell>kapasistasMesin</Table.HeaderCell>
+                          <Table.HeaderCell>jmlSilinder</Table.HeaderCell>
+                          <Table.HeaderCell>jmlKatup</Table.HeaderCell>
+                          <Table.HeaderCell>maxTenaga</Table.HeaderCell>
+                          <Table.HeaderCell>maxTorsi</Table.HeaderCell>
+                          <Table.HeaderCell>jenisBahanBakar</Table.HeaderCell>
+                          <Table.HeaderCell>kapasitasBahanBakar</Table.HeaderCell>
+                          <Table.HeaderCell>banLebar</Table.HeaderCell>
+                          <Table.HeaderCell>banAspekRasio</Table.HeaderCell>
+                          <Table.HeaderCell>banDiameter</Table.HeaderCell>
+                          <Table.HeaderCell>suspensiDepan</Table.HeaderCell>
+                          <Table.HeaderCell>suspensiBelakang</Table.HeaderCell>
+                          <Table.HeaderCell>tipeTransmisi</Table.HeaderCell>
+                          <Table.HeaderCell>tipeGearBox</Table.HeaderCell>
+                          <Table.HeaderCell>dimensiPanjang</Table.HeaderCell>
+                          <Table.HeaderCell>dimanesiLebar</Table.HeaderCell>
+                          <Table.HeaderCell>dimensiTinggi</Table.HeaderCell>
+                          <Table.HeaderCell>dimensiSumbuRoda</Table.HeaderCell>
+                          <Table.HeaderCell>dimensiGroundClearance</Table.HeaderCell>
+                          <Table.HeaderCell>dimensiBerat</Table.HeaderCell>
+                          <Table.HeaderCell>dimensiKargo</Table.HeaderCell>
+                          <Table.HeaderCell>jmlPintu</Table.HeaderCell>
+                          <Table.HeaderCell>jmlKusis</Table.HeaderCell>
+                          <Table.HeaderCell>generalId</Table.HeaderCell>
+                          <Table.HeaderCell>date Created</Table.HeaderCell>
+                          <Table.HeaderCell>generalId</Table.HeaderCell>
+
+
                           <Table.HeaderCell textAlign='center'>
                             Action
                           </Table.HeaderCell>
@@ -140,7 +139,7 @@ export default class specification extends Component{
                                 >
                                   Delete
                                 </Button>
-                                <Link to={'/put/' + data.id}>
+                                <Link to={'/editSpec/' + data.id}>
                                   <Button
                                     className='button-size'
                                     color='blue'
