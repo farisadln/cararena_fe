@@ -24,7 +24,7 @@ export default class imgCar extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184:4000/api/img')
+    const API_URL = fetch('http://127.0.0.1:4000/api/img')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -33,6 +33,17 @@ export default class imgCar extends Component {
         content: resJson,
       })
     })
+  }
+  deleteBrand(id) {
+    if (window.confirm('Hapus neh?')) {
+      fetch('http://127.0.0.1:4000/api/img/' + id, {
+        method: 'DELETE',
+        header: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+    }
   }
   render() {
     return (
@@ -46,7 +57,7 @@ export default class imgCar extends Component {
                 <Table.Row>
 
                   <Table.HeaderCell colSpan='6'>
-                    <Link to={'/brandForm/'}>
+                    <Link to={'/imgForm/'}>
                       <Button
                         floated='left'
                         icon
@@ -89,7 +100,7 @@ export default class imgCar extends Component {
                         >
                           Delete
                         </Button>
-                        <Link to={'/put/' + data.id}>
+                        <Link to={'/editImgCar/' + data.id}>
                           <Button
                             className='button-size'
                             color='blue'

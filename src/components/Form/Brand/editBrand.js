@@ -16,7 +16,7 @@ export default class editBrand extends Component {
 
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
-    console.log(pathArray)
+
     const API_URL = fetch('http://127.0.0.1:4000/api/brand/' + pathArray)
 
     API_URL.then((res) => {

@@ -28,7 +28,6 @@ export default class changePassword extends Component {
 
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
-    console.log(pathArray)
     const API_URL = fetch('http://127.0.0.1:4000/api/auth/user/'+pathArray)
 
     API_URL.then((res) => {
@@ -50,7 +49,7 @@ export default class changePassword extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://localhost:4000/api/auth/user/' + pathArray
+    const url = 'http://localhost:4000/api/auth/update/' + pathArray
 
     const data = {
       id: this.state.id,
@@ -90,14 +89,14 @@ export default class changePassword extends Component {
                     type='text'
                     onChange={this.handleChange}
                     value={this.state.username}
-                    name='carBrand'
+                    name='username'
                   />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>passowrd</Form.Label>
                   <Form.Control
                     onChange={this.handleChange}
-                    name='logoUrl'
+                    name='password'
                     type='text'
                     value={this.state.password}
                   />

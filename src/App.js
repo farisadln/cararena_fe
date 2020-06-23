@@ -33,7 +33,7 @@ import AddAdmin from "./pages/board/addAdmin"
 import ChangePassword from "./components/Table/user/changePassword"
 import BackgroundForm from "./components/Form/Background/backgroundForm"
 import EditSpec from "./components/Form/Specification/editSpecification"
-
+import EditImgCar from "./components/Form/ImgCar/editImgCar"
 
 class App extends Component {
   constructor(props) {
@@ -148,6 +148,7 @@ class App extends Component {
                 <Route path="/imgForm" component={ImgForm}  />
                 <Route path="/backgroundForm" component={BackgroundForm}/>
                 <Route path="/editBackground" component={EditBackground}/>
+                <Route path="/editImgCar" component={EditImgCar}/>
                 <Route path="/details" component={DetailsCar} />
                 <Route path="/editSpec" component={EditSpec} />
                 <Route path="/editGeneral" component={EditGeneral}/>
