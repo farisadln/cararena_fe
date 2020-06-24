@@ -37,7 +37,7 @@ export default class generalTable extends Component {
 
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://127.0.0.1:4000/api/general/' + id, {
+      fetch('hhttp://localhost:4000/api/general/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

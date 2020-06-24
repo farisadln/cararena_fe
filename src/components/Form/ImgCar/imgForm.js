@@ -13,7 +13,7 @@ export default class imgForm extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = 'http://127.0.0.1:4000/api/img'
+    const url = 'http://localhost:4000/api/img'
     const data = { img1: this.state.img1, img2: this.state.img2,  img3: this.state.img3, specificationId: this.state.specificationId}
     fetch(url, {
       method: 'POST',

@@ -24,7 +24,7 @@ export default class imgCar extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://127.0.0.1:4000/api/img')
+    const API_URL = fetch('http://localhost:4000/api/img')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -36,7 +36,7 @@ export default class imgCar extends Component {
   }
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://127.0.0.1:4000/api/img/' + id, {
+      fetch('http://localhost:4000/api/img/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

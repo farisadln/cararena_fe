@@ -27,7 +27,7 @@ export default class reviewTable extends Component{
 
     componentDidMount() {
 
-        const API_URL = fetch('http:///127.0.0.1:4000/api/review');
+        const API_URL = fetch('http://localhost:4000/api/review');
 
         API_URL.then(res => {
             if(res.status === 200)
@@ -44,7 +44,7 @@ export default class reviewTable extends Component{
         }
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://127.0.0.1:4000/api/review/' + id, {
+      fetch('http://localhost:4000/api/review/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

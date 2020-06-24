@@ -28,7 +28,7 @@ export default class changePassword extends Component {
 
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
-    const API_URL = fetch('http://127.0.0.1:4000/api/auth/user/'+pathArray)
+    const API_URL = fetch('http://localhost:4000/api/auth/user/'+pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()

@@ -19,7 +19,7 @@ export default class editGeneral extends Component {
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://127.0.0.1:4000/api/general/' + pathArray)
+    const API_URL = fetch('http://localhost:4000/api/general/' + pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
