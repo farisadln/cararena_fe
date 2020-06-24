@@ -24,7 +24,7 @@ export default class userTable extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://localhost:4000/api/auth/user')
+    const API_URL = fetch('http://139.162.28.184/:4000/api/auth/user')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -36,7 +36,7 @@ export default class userTable extends Component {
   }
   deleteBrand(username) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://localhost:4000/api/auth/user/' + username, {
+      fetch('http://139.162.28.184/:4000/api/auth/user/' + username, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

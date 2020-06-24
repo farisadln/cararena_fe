@@ -34,7 +34,7 @@ export default class specification extends Component {
   }
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://localhost:4000/api/specification/' + id, {
+      fetch('http://139.162.28.184/:4000/api/specification/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

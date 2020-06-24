@@ -22,7 +22,7 @@ export default class brandFrom extends Component {
     event.preventDefault()
     console.log('brand :  ' + this.state.carBrand)
     console.log('url: ' + this.state.logoUrl)
-    const url = 'http://localhost:4000/api/brand'
+    const url = 'http://139.162.28.184/:4000/api/brand'
     const data = { carBrand: this.state.carBrand, logoUrl: this.state.logoUrl }
     fetch(url, {
       method: 'POST',

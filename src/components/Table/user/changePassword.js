@@ -28,7 +28,7 @@ export default class changePassword extends Component {
 
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
-    const API_URL = fetch('http://localhost:4000/api/auth/user/'+pathArray)
+    const API_URL = fetch('http://139.162.28.184/:4000/api/auth/user/'+pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -49,7 +49,7 @@ export default class changePassword extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://localhost:4000/api/auth/update/' + pathArray
+    const url = 'http://139.162.28.184/:4000/api/auth/update/' + pathArray
 
     const data = {
       id: this.state.id,

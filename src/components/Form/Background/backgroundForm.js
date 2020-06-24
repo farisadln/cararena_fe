@@ -21,7 +21,7 @@ export default class backgroundFrom extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const url = 'http://localhost:4000/api/general'
+    const url = 'http://139.162.28.184/:4000/api/general'
     const data = {
       type: this.state.type,
       hargaOtr: this.state.hargaOtr,
