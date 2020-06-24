@@ -40,7 +40,7 @@ export default class sopecificationForm extends Component {
       }
       handleSubmit = (event) => {
         event.preventDefault()
-        const url = 'http://139.162.28.184/:4000/api/specification'
+        const url = 'http://139.162.28.184:4000/api/specification'
         const data = {
           kapasistasMesin: this.state.kapasistasMesin,
           jmlSilinder: this.state.jmlSilinder,

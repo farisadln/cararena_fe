@@ -25,7 +25,7 @@ export default class backgroundTable extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184/:4000/api/backgrounds')
+    const API_URL = fetch('http://139.162.28.184:4000/api/backgrounds')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -38,7 +38,7 @@ export default class backgroundTable extends Component {
 
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184/:4000/api/backgrounds/' + id, {
+      fetch('http://139.162.28.184:4000/api/backgrounds/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

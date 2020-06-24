@@ -16,7 +16,7 @@ export default class editBrand extends Component {
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
 
-    const API_URL = fetch('http://139.162.28.184/:4000/api/brand/' + pathArray)
+    const API_URL = fetch('http://139.162.28.184:4000/api/brand/' + pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -36,7 +36,7 @@ export default class editBrand extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://139.162.28.184/:4000/api/brand/' + pathArray
+    const url = 'http://139.162.28.184:4000/api/brand/' + pathArray
 
     const data = {
       id: this.state.id,

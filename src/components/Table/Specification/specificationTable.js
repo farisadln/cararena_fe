@@ -22,7 +22,7 @@ export default class specification extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://127.0.0.1:4000/api/specification')
+    const API_URL = fetch('http://139.162.28.184:4000/api/specification/')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -34,7 +34,7 @@ export default class specification extends Component {
   }
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184/:4000/api/specification/' + id, {
+      fetch('http://139.162.28.184:4000/api/specification/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',

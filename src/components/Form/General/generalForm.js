@@ -18,7 +18,7 @@ export default class generalForm extends Component {
  
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = 'http://139.162.28.184/:4000/api/general'
+    const url = 'http://139.162.28.184:4000/api/general'
     const data = { type: this.state.type, hargaOtr: this.state.hargaOtr,  brandId: this.state.brandId}
     fetch(url, {
       method: 'POST',

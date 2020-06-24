@@ -25,7 +25,7 @@ export default class cars extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184/:4000/api/brand/cars')
+    const API_URL = fetch('http://139.162.28.184:4000/api/brand/cars')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()

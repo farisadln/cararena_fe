@@ -35,7 +35,7 @@ export default class detailsCar extends Component {
 
   componentDidMount() {
     var pathArray = window.location.pathname.split('/')[2]
-    const API_URL = fetch('http://139.162.28.184/:4000/api/brand/cars/' + pathArray)
+    const API_URL = fetch('http://139.162.28.184:4000/api/brand/cars/' + pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()

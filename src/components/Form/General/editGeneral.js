@@ -19,7 +19,7 @@ export default class editGeneral extends Component {
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://139.162.28.184/:4000/api/general/' + pathArray)
+    const API_URL = fetch('http://139.162.28.184:4000/api/general/' + pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -40,7 +40,7 @@ export default class editGeneral extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://139.162.28.184/:4000/api/general/' + pathArray
+    const url = 'http://139.162.28.184:4000/api/general/' + pathArray
 
     const data = {
       id: this.state.id,
