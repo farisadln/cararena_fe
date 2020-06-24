@@ -8,6 +8,7 @@ import {
   Sidebar,
   Table,
   Grid,
+  Header
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import '../table.css'
@@ -33,12 +34,35 @@ export default class generalTable extends Component {
       })
     })
   }
+
+  deleteBrand(id) {
+    if (window.confirm('Hapus neh?')) {
+      fetch('http://127.0.0.1:4000/api/general/' + id, {
+        method: 'DELETE',
+        header: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+    }
+  }
+
+  refreshPage() {
+    window.location.reload(false);
+  }
   render() {
     return (
+      
       <Sidebar.Pushable className='top-section pusher' as={Segment}>
         <SidebarExampleVisible/>
         <Sidebar.Pusher>
           <div className='four-hundred-width'>
+          <Header as='h2'>
+              General Data
+              <Header.Subheader>
+              
+              </Header.Subheader>
+            </Header>
           <Table celled compact definition>
 
             <Table.Header fullWidth>
@@ -82,6 +106,7 @@ export default class generalTable extends Component {
                       color='red'
                       attached='left'
                       onClick={() => this.deleteBrand(data.id)}
+                      
                     >
                       Delete
                     </Button>

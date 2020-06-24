@@ -7,7 +7,7 @@ import {
   Segment,
   Sidebar,
   Table,
-  Grid,
+  Grid,Header
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import '../table.css'
@@ -52,6 +52,12 @@ export default class imgCar extends Component {
 
         <Sidebar.Pusher>
           <div className='four-hundred-width'>
+          <Header as='h2'>
+              Image Data
+              <Header.Subheader>
+              
+              </Header.Subheader>
+            </Header>
             <Table celled fixed singleLine>
               <Table.Header fullWidth>
                 <Table.Row>

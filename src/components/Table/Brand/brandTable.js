@@ -10,6 +10,7 @@ import {
   Sidebar,
   Table,
   Grid,
+  Header
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import '../table.css'
@@ -51,10 +52,17 @@ export default class brandTable extends Component {
     return (
       <div>
         <Sidebar.Pushable className="top-section pusher" as={Segment}>
-          <SidebarExampleVisible/>
+        
 
           <Sidebar.Pusher>
             <div className='four-hundred-width'>
+            <Header as='h2'>
+              Brand Data
+              <Header.Subheader>
+              
+              </Header.Subheader>
+            </Header>
+          <SidebarExampleVisible/>
               <Table celled compact definition>
                 <Table.Header fullWidth>
                   <Table.Row>

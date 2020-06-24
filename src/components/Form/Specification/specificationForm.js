@@ -82,6 +82,12 @@ export default class sopecificationForm extends Component {
           <Sidebar.Pushable className='top-section pusher' as={Segment}>
             <SidebarExampleVisible />
             <Sidebar.Pusher className='four-hundred-width'>
+            <Header as='h2'>
+              Spesifikasi Data
+              <Header.Subheader>
+              
+              </Header.Subheader>
+            </Header>
               <Form onSubmit={this.handleSubmit}>
                 <Form.Field>
                   <label>kapasistasMesin</label>

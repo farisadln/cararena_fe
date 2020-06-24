@@ -1,8 +1,8 @@
 import React, { Component, useState, useEffect } from 'react'
 import { withRouter } from 'react-router'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Row, Col, Card, Form, Button, Table } from 'react-bootstrap'
+import { Button, Checkbox, Form, Sidebar, Segment, Header } from 'semantic-ui-react'
+import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 
 export default class editGeneral extends Component {
   constructor(props) {
@@ -59,60 +59,58 @@ export default class editGeneral extends Component {
 
   render(){
     return (
-      <Container fluid>
-
-        <Row>
+      <Sidebar.Pushable className="top-section pusher" as={Segment}>
+      <SidebarExampleVisible/>
+      <Sidebar.Pusher className='four-hundred-width'>
           <div className='col-md-12'>
-            <Col md={{ span: 7, offset: 3 }}>
               <Form onSubmit={this.handleSubmit}>
-                <Form.Group>
-                  <Form.Label>Id</Form.Label>
-                  <Form.Control
+                <Form>
+                  <label>Id</label>
+                  <input
                     placeholder='Id'
                     value={this.state.id}
                     disabled
                     name='id'
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Tipe Mobil</Form.Label>
-                  <Form.Control
+                </Form>
+                <Form>
+                  <label>Tipe Mobil</label>
+                  <input
                     placeholder='Tipe Mobil'
                     type='text'
                     onChange={this.handleChange}
                     value={this.state.type}
                     name='type'
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Harga OTR</Form.Label>
-                  <Form.Control
+                </Form>
+                <Form>
+                  <label>Harga OTR</label>
+                  <input
                     placeholder='Harga OTR'
                     onChange={this.handleChange}
                     name='hargaOtr'
                     type='text'
                     value={this.state.hargaOtr}
                   />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>BrandId</Form.Label>
-                  <Form.Control
+                </Form>
+                <Form>
+                  <label>BrandId</label>
+                  <input
                     placeholder='brandId'
                     onChange={this.handleChange}
                     name='brandId'
                     type='text'
                     value={this.state.brandId}
                   />
-                </Form.Group>
+                </Form>
 
                 <Button variant='primary' value='Add' type='submit'>
                   Update
                 </Button>
               </Form>
-            </Col>
           </div>
-        </Row>
-      </Container>
+          </Sidebar.Pusher>
+          </Sidebar.Pushable>
     )
   }
 

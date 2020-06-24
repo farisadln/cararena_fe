@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import { Button, Checkbox, Form, Sidebar, Segment, Header } from 'semantic-ui-react'
 import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router';
 
 export default class generalForm extends Component {
   constructor() {
@@ -11,6 +13,9 @@ export default class generalForm extends Component {
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
+  
+  
+ 
   handleSubmit = (event) => {
     event.preventDefault()
     const url = 'http://127.0.0.1:4000/api/general'
@@ -24,18 +29,23 @@ export default class generalForm extends Component {
       .catch((error) => console.error('Error:', error))
       .then((response) => console.log('Success:', response))
   }
+
+  refreshPage() {
+    window.location.reload(false);
+  }
   render() {
+    
     return (
       <Sidebar.Pushable className="top-section pusher" as={Segment}>
         <SidebarExampleVisible/>
         <Sidebar.Pusher className='four-hundred-width'>
-          <Header as='h2'>
-            Account Settings
-            <Header.Subheader>
-              Manage your account settings and set email preferences
-            </Header.Subheader>
-          </Header>
-              <Form onSubmit={this.handleSubmit}>
+        <Header as='h2'>
+        General Form
+        <Header.Subheader>
+        Manage general data
+        </Header.Subheader>
+      </Header>
+              <Form onSubmit={this.handleSubmit} >
                 <Form.Field>
                   <label>Tipe Mobil</label>
                   <input
@@ -62,9 +72,13 @@ export default class generalForm extends Component {
                   />
 
                 </Form.Field>
-                <Button variant='primary' value='Add' type='submit'>
-                  Submit
+                
+                <Button variant='primary' value='Add' type='submit' onClick={this.refreshPage}>
+                  Submit   
                 </Button>
+           
+                
+                
               </Form>
         </Sidebar.Pusher>
       </Sidebar.Pushable>

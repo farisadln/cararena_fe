@@ -40,9 +40,9 @@ export default class brandFrom extends Component {
         <div className='four-hundred-width'>
           <Sidebar.Pusher>
             <Header as='h2'>
-              Account Settings
+              Brand Form
               <Header.Subheader>
-                Manage your account settings and set email preferences
+                Manage brand data
               </Header.Subheader>
             </Header>
             <Form onSubmit={this.handleSubmit}>

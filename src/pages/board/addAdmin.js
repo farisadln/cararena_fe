@@ -180,7 +180,7 @@ export default class addAdmin extends Component {
 
                     <div className='form-group'>
                       <button className='btn btn-primary btn-block'>
-                        Sign Up
+                        Create
                       </button>
                     </div>
                   </div>
