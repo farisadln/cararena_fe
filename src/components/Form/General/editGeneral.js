@@ -44,8 +44,9 @@ export default class editGeneral extends Component {
 
     const data = {
       id: this.state.id,
-      carBrand: this.state.carBrand,
-      logoUrl: this.state.logoUrl,
+        type: this.state.type,
+        hargaOtr: this.state.hargaOtr,
+        brandId: this.state.brandId
     }
     fetch(url, {
       method: 'PUT',

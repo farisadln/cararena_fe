@@ -60,6 +60,15 @@ export default class imgForm extends Component {
                     name='img3'
                   />
                 </Form>
+
+                <Form>
+                  <label>specificationId</label>
+                  <input
+                    placeholder='specificationId'
+                    onChange={this.handleChange}
+                    name='specificationId'
+                  />
+                </Form>
                 <Button variant='primary' value='Add' type='submit'>
                   Submit
                 </Button>

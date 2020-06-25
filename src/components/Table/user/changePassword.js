@@ -68,11 +68,13 @@ export default class changePassword extends Component {
 
   render() {
     return (
-      <Container fluid>
+     
+      <Sidebar.Pushable className="top-section pusher" as={Segment}>
+      <SidebarExampleVisible/>
 
-        <Row>
-          <div className='col-md-12'>
-            <Col md={{ span: 7, offset: 3 }}>
+      <Sidebar.Pusher className='four-hundred-width'>
+      <div className='col-md-12'>
+          
               <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
                   <Form.Label>Id</Form.Label>
@@ -105,10 +107,10 @@ export default class changePassword extends Component {
                   Update
                 </Button>
               </Form>
-            </Col>
-          </div>
-        </Row>
-      </Container>
+              </div>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
+      
     )
   }
 

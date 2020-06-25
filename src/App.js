@@ -7,7 +7,6 @@ import authService from "./services/authService";
 
 import Login from "./components/loginComponent";
 import Register from "./components/registerComponent";
-import Home from "./pages/board/homeComponent";
 import Profile from "./components/profileComponent";
 import BoardUser from "./pages/board/userBoardComponent";
 import BoardAdmin from "./pages/board/adminBoardComponent";
@@ -73,11 +72,7 @@ class App extends Component {
                 carArena
               </Link>
               <div className="navbar-nav mr-auto">
-                <li className="nav-item">
-                  <Link to={"/home"} className="nav-link">
-                    Home
-                  </Link>
-                </li>
+                
 
 
 
@@ -120,18 +115,13 @@ class App extends Component {
                     </Link>
                   </li>
 
-                  <li className="nav-item">
-                    <Link to={"/register"} className="nav-link">
-                      Sign Up
-                    </Link>
-                  </li>
+                  
                 </div>
               )}
             </nav>
 
             <div >
               <Switch>
-                <Route exact path={["/", "/home"]} component={Home} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/profile" component={Profile} />

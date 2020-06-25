@@ -73,7 +73,7 @@ export default class generalForm extends Component {
 
                 </Form.Field>
                 
-                <Button variant='primary' value='Add' type='submit' onClick={this.refreshPage}>
+                <Button variant='primary' value='Add' type='submit'>
                   Submit   
                 </Button>
            
