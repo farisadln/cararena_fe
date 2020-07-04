@@ -10,7 +10,8 @@ import {
   Sidebar,
   Table,
   Grid,
-  Header
+  Header,
+  Image
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import '../table.css'
@@ -98,7 +99,9 @@ export default class brandTable extends Component {
                       <tr key={data.id}>
                         <Table.Cell>{data.id}</Table.Cell>
                         <Table.Cell>{data.carBrand}</Table.Cell>
-                        <Table.Cell>{data.logoUrl}</Table.Cell>
+                        <Table.Cell>
+                        <Image src={data.logoUrl}></Image>
+                        </Table.Cell>
                         <Table.Cell>{data.createdAt}</Table.Cell>
                         <Table.Cell textAlign='center'>
                           <Button

@@ -7,7 +7,8 @@ import {
   Segment,
   Sidebar,
   Table,
-  Grid,Header
+  Grid,
+  Header
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'
 import '../table.css'

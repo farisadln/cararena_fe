@@ -51,14 +51,14 @@ export default class imgCar extends Component {
         <SidebarExampleVisible/>
 
         <Sidebar.Pusher>
-          <div className='four-hundred-width'>
+          <div className='two-hundred-width'>
           <Header as='h2'>
               Image Data
               <Header.Subheader>
               
               </Header.Subheader>
             </Header>
-            <Table celled fixed singleLine>
+            <Table celled fixed singleLine >
               <Table.Header fullWidth>
                 <Table.Row>
 
@@ -81,6 +81,7 @@ export default class imgCar extends Component {
                   <Table.HeaderCell >Url Img1</Table.HeaderCell>
                   <Table.HeaderCell >Url Img2</Table.HeaderCell>
                   <Table.HeaderCell >Url Img3</Table.HeaderCell>
+                  <Table.HeaderCell >SpecId</Table.HeaderCell>
                   <Table.HeaderCell>Created At</Table.HeaderCell>
                   <Table.HeaderCell textAlign='center'>
                     Action
@@ -96,6 +97,7 @@ export default class imgCar extends Component {
                       <Table.Cell >{data.img1}</Table.Cell>
                       <Table.Cell>{data.img2}</Table.Cell>
                       <Table.Cell>{data.img3}</Table.Cell>
+                      <Table.Cell>{data.specificationId}</Table.Cell>
                       <Table.Cell>{data.createdAt}</Table.Cell>
                       <Table.Cell textAlign='center'>
                         <Button
