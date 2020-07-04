@@ -33,6 +33,10 @@ import ChangePassword from "./components/Table/user/changePassword"
 import BackgroundForm from "./components/Form/Background/backgroundForm"
 import EditSpec from "./components/Form/Specification/editSpecification"
 import EditImgCar from "./components/Form/ImgCar/editImgCar"
+import UrlTable from "./components/Table/Url/urlTable"
+import UrlFrom from "./components/Form/Url/urlForm"
+import UrlEdit from "./components/Form/Url/urlEdit"
+
 
 class App extends Component {
   constructor(props) {
@@ -137,6 +141,7 @@ class App extends Component {
                 <Route path="/specificationForm" component={SpecificationFrom}  />
                 <Route path="/imgForm" component={ImgForm}  />
                 <Route path="/backgroundForm" component={BackgroundForm}/>
+                <Route path="/urlForm" component={UrlFrom}/>
                 <Route path="/editBackground" component={EditBackground}/>
                 <Route path="/editImgCar" component={EditImgCar}/>
                 <Route path="/details" component={DetailsCar} />
@@ -149,11 +154,11 @@ class App extends Component {
                 <Route path="/review" component={ReviewTable}  />
                 <Route path="/userGet" component={UserTable}  />
                 <Route path="/imgCarsTable" component={ImgTable}  />
-
+                <Route path="/urlTable" component={UrlTable}  />
+                <Route path="/editUrl" component={UrlEdit}/>
                 <Route path="/addAdmin" component={AddAdmin}/>
                 <Route path="/changePassword" component={ChangePassword}/>
-
-
+                
                 <Route path="/admin" component={BoardAdmin} />
               </Switch>
             </div>
