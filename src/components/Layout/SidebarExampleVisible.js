@@ -81,7 +81,7 @@ export default class SidebarExampleVisible extends Component {
                 onClick={this.handleItemClick}
               />
             </Link>
-            <Link to={'/review'}>
+            <Link to={'/urlTable'}>
               <Menu.Item
                 name='urlScrap'
                 active={activeItem === 'urlScrap'}
