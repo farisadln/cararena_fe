@@ -25,11 +25,12 @@ export default class generalForm extends Component {
   }
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
+
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = 'http://localhost:4000/api/url/'
+    const url = 'http://139.162.28.184:4000/api/url/'
     const data = {
       urlGeneral: this.state.urlGeneral,
       urlSpecification: this.state.urlSpecification,

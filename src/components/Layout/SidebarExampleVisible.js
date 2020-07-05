@@ -42,42 +42,49 @@ export default class SidebarExampleVisible extends Component {
             <Link to={'/backgroundTable/'}>
               <Menu.Item
                 name='Background'
-                active={activeItem === 'rails'}
+                active={activeItem === 'Background'}
                 onClick={this.handleItemClick}
               />
             </Link>
             <Link to={'/brandTable/'}>
               <Menu.Item
                 name='brand'
-                active={activeItem === 'python'}
+                active={activeItem === 'brand'}
                 onClick={this.handleItemClick}
               />
             </Link>
             <Link to={'/generalTable/'}>
               <Menu.Item
                 name='general'
-                active={activeItem === 'php'}
+                active={activeItem === 'general'}
                 onClick={this.handleItemClick}
               />
             </Link>
             <Link to={'/specificationTable/'}>
               <Menu.Item
                 name='specification'
-                active={activeItem === 'php'}
+                active={activeItem === 'specification'}
                 onClick={this.handleItemClick}
               />
             </Link>
             <Link to={'/imgCarsTable/'}>
               <Menu.Item
                 name='imgCar'
-                active={activeItem === 'php'}
+                active={activeItem === 'imgCar'}
                 onClick={this.handleItemClick}
               />
             </Link>
             <Link to={'/review'}>
               <Menu.Item
                 name='review'
-                active={activeItem === 'php'}
+                active={activeItem === 'review'}
+                onClick={this.handleItemClick}
+              />
+            </Link>
+            <Link to={'/review'}>
+              <Menu.Item
+                name='urlScrap'
+                active={activeItem === 'urlScrap'}
                 onClick={this.handleItemClick}
               />
             </Link>
@@ -91,17 +98,18 @@ export default class SidebarExampleVisible extends Component {
             <Link to={'/userGet'}>
               <Menu.Item
                 name='Change Password'
-                active={activeItem === 'shared'}
+                active={activeItem === 'Change Password'}
                 onClick={this.handleItemClick}
               />
             </Link>
             <Link to={'/addAdmin/'}>
               <Menu.Item
                 name='Add Admin'
-                active={activeItem === 'shared'}
+                active={activeItem === 'Add Admin'}
                 onClick={this.handleItemClick}
               />
             </Link>
+
           </Menu.Menu>
         </Menu.Item>
       </Sidebar>
