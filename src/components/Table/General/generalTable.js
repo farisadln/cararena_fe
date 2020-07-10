@@ -24,7 +24,7 @@ export default class generalTable extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184:4000/api/general/')
+    const API_URL = fetch('http://localhost:4000/api/general/')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -37,7 +37,7 @@ export default class generalTable extends Component {
 
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184:4000/api/general/' + id, {
+      fetch('http://localhost:4000/api/general/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -86,6 +86,7 @@ export default class generalTable extends Component {
                 <Table.HeaderCell>Id</Table.HeaderCell>
                 <Table.HeaderCell>type</Table.HeaderCell>
                 <Table.HeaderCell>hargaOtr</Table.HeaderCell>
+                <Table.HeaderCell>Log Activity</Table.HeaderCell>
                 <Table.HeaderCell>Created At</Table.HeaderCell>
                 <Table.HeaderCell textAlign='center'>
                   Action
@@ -99,6 +100,7 @@ export default class generalTable extends Component {
                   <Table.Cell>{data.id}</Table.Cell>
                   <Table.Cell>{data.type}</Table.Cell>
                   <Table.Cell>{data.hargaOtr}</Table.Cell>
+                   <Table.Cell>{data.logActivity}</Table.Cell>
                   <Table.Cell>{data.createdAt}</Table.Cell>
                   <Table.Cell textAlign='center'>
                     <Button

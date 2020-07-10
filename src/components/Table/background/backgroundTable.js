@@ -25,7 +25,7 @@ export default class backgroundTable extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184:4000/api/backgrounds')
+    const API_URL = fetch('http://localhost:4000/api/backgrounds')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -38,7 +38,7 @@ export default class backgroundTable extends Component {
 
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184:4000/api/backgrounds/' + id, {
+      fetch('http://localhost:4000/api/backgrounds/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -72,6 +72,7 @@ export default class backgroundTable extends Component {
                     <Table.HeaderCell>Background url_img1</Table.HeaderCell>
                     <Table.HeaderCell>Background url_img2</Table.HeaderCell>
                     <Table.HeaderCell>Background url_img3</Table.HeaderCell>
+                    <Table.HeaderCell>Log Activity</Table.HeaderCell>
                     <Table.HeaderCell>Created At</Table.HeaderCell>
                     <Table.HeaderCell textAlign='center'>
                       Action
@@ -93,6 +94,10 @@ export default class backgroundTable extends Component {
                         <Table.Cell>
                           <Image src={data.url_img3} size='medium ' />
                         </Table.Cell>
+                        <Table.Cell>
+                        {data.logActivity}
+                        </Table.Cell>
+                        
                         <Table.Cell>{data.createdAt}</Table.Cell>
                         <Table.Cell textAlign='center'>
                           <Button

@@ -18,7 +18,7 @@ export default class backgroundEdit extends Component {
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://139.162.28.184:4000/api/backgrounds/'+pathArray)
+    const API_URL = fetch('http://localhost:4000/api/backgrounds/'+pathArray)
     console.log(API_URL)
 
     API_URL.then((res) => {
@@ -40,7 +40,7 @@ export default class backgroundEdit extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://139.162.28.184:4000/api/backgrounds/' + pathArray
+    const url = 'http://localhost:4000/api/backgrounds/' + pathArray
 
     const data = {
       id: this.state.id,

@@ -33,6 +33,7 @@ export default class editSpecification extends Component {
       dimensiKargo: this.props.dimensiKargo,
       jmlPintu: this.props.jmlPintu,
       jmlKuris: this.props.jmlKuris,
+      logActivity: this.props.logActivity,
       generalId: this.props.generalId
     }
   }
@@ -40,7 +41,7 @@ export default class editSpecification extends Component {
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://139.162.28.184:4000/api/specification/' + pathArray)
+    const API_URL = fetch('http://localhost:4000/api/specification/' + pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -71,6 +72,7 @@ export default class editSpecification extends Component {
         dimensiKargo: resJson.dimensiKargo,
         jmlPintu: resJson.jmlPintu,
         jmlKuris: resJson.jmlKuris,
+        logActivity: resJson.logActivity,
         generalId: resJson.generalId
       })
     })
@@ -83,7 +85,7 @@ export default class editSpecification extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://139.162.28.184:4000/api/specification/' + pathArray
+    const url = 'http://localhost:4000/api/specification/' + pathArray
 
     const data = {
       id: this.state.id,
@@ -111,6 +113,7 @@ export default class editSpecification extends Component {
       dimensiKargo: this.state.dimensiKargo,
       jmlPintu: this.state.jmlPintu,
       jmlKuris: this.state.jmlKuris,
+      logActivity: this.state.logActivity,
       generalId: this.state.generalId,
     }
     fetch(url, {
@@ -137,6 +140,17 @@ export default class editSpecification extends Component {
                     name='id'
                   />
                 </Form.Field>
+                <Form.Field>
+                  <label>logActivity</label>
+                  <input
+                    placeholder='logActivity'
+                    defaultValue='fall'
+                    value={this.state.logActivity}
+                    disabled
+                    name='logActivity'
+                  />
+                </Form.Field>
+                
                   <Form.Field>
                     <label>kapasistasMesin</label>
                     <input

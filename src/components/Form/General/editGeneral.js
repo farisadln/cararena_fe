@@ -11,6 +11,7 @@ export default class editGeneral extends Component {
       id: this.props.id,
       type: this.props.carBrand,
       hargaOtr: this.props.hargaOtr,
+      logActivity: this.props.logActivity,
       brandId: this.props.logoUrl,
 
     }
@@ -19,7 +20,7 @@ export default class editGeneral extends Component {
   componentDidMount(props) {
     var pathArray = window.location.pathname.split('/')[2]
     console.log(pathArray)
-    const API_URL = fetch('http://139.162.28.184:4000/api/general/' + pathArray)
+    const API_URL = fetch('http://localhost:4000/api/general/' + pathArray)
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -28,6 +29,7 @@ export default class editGeneral extends Component {
         id: resJson.id,
         type: resJson.type,
         hargaOtr: resJson.hargaOtr,
+        logActivity: resJson.logActivity,
         brandId: resJson.brandId
       })
     })
@@ -40,12 +42,13 @@ export default class editGeneral extends Component {
   handleSubmit = (event) => {
     var pathArray = window.location.pathname.split('/')[2]
     event.preventDefault()
-    const url = 'http://139.162.28.184:4000/api/general/' + pathArray
+    const url = 'http://localhost:4000/api/general/' + pathArray
 
     const data = {
       id: this.state.id,
         type: this.state.type,
         hargaOtr: this.state.hargaOtr,
+        logActivity: this.state.logActivity,
         brandId: this.state.brandId
     }
     fetch(url, {
@@ -72,6 +75,15 @@ export default class editGeneral extends Component {
                     value={this.state.id}
                     disabled
                     name='id'
+                  />
+                </Form>
+                <Form>
+                  <label>Log Activity</label>
+                  <input
+                  defaultValue="fall"
+                  placeholder='Log Activity'
+                  onChange={this.handleChange}
+                  name='logActivity'
                   />
                 </Form>
                 <Form>

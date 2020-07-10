@@ -7,6 +7,7 @@ import {
   Sidebar,
   Segment,
   Header,
+  TextArea
 } from 'semantic-ui-react'
 import SidebarExampleVisible from '../../Layout/SidebarExampleVisible'
 import { Link } from 'react-router-dom'
@@ -30,7 +31,7 @@ export default class generalForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const url = 'http://139.162.28.184:4000/api/url/'
+    const url = 'http://localhost:4000/api/url/'
     const data = {
       urlGeneral: this.state.urlGeneral,
       urlSpecification: this.state.urlSpecification,
@@ -58,12 +59,17 @@ export default class generalForm extends Component {
         <Sidebar.Pusher className='four-hundred-width'>
           <Header as='h2'>
             Url Form
-            <Header.Subheader>Url general data</Header.Subheader>
+            <Header.Subheader>Url general data.
+           
+            </Header.Subheader>
+            <Header.Subheader>
+            Pisahkan link dengan tanda (;)
+            </Header.Subheader>
           </Header>
           <Form onSubmit={this.handleSubmit}>
             <Form.Field>
               <label>urlGeneral</label>
-              <input
+              <TextArea
                 placeholder='urlGeneral'
                 onChange={this.handleChange}
                 name='urlGeneral'
@@ -71,7 +77,7 @@ export default class generalForm extends Component {
             </Form.Field>
             <Form.Field>
               <label>urlSpecification</label>
-              <input
+              <TextArea
                 placeholder='urlSpecification'
                 onChange={this.handleChange}
                 name='urlSpecification'
@@ -79,7 +85,7 @@ export default class generalForm extends Component {
             </Form.Field>
             <Form.Field>
               <label>urlImg</label>
-              <input
+              <TextArea
                 placeholder='urlImg'
                 onChange={this.handleChange}
                 name='urlImg'
@@ -88,7 +94,7 @@ export default class generalForm extends Component {
 
             <Form.Field>
               <label>urlReview</label>
-              <input
+              <TextArea
                 placeholder='urlReview'
                 onChange={this.handleChange}
                 name='urlReview'
@@ -98,6 +104,7 @@ export default class generalForm extends Component {
             <Form.Field>
               <label>urlBackground</label>
               <input
+                defaultValue="-"
                 placeholder='urlBackground'
                 onChange={this.handleChange}
                 name='urlBackground'

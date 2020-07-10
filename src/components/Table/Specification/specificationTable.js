@@ -23,7 +23,7 @@ export default class specification extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184:4000/api/specification/')
+    const API_URL = fetch('http://localhost:4000/api/specification/')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -35,7 +35,7 @@ export default class specification extends Component {
   }
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184:4000/api/specification/' + id, {
+      fetch('http://localhost:4000/api/specification/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -101,6 +101,7 @@ export default class specification extends Component {
                   <Table.HeaderCell>jmlPintu</Table.HeaderCell>
                   <Table.HeaderCell>jmlKusis</Table.HeaderCell>
                   <Table.HeaderCell>generalId</Table.HeaderCell>
+                  <Table.HeaderCell>Log Activity</Table.HeaderCell>
                   <Table.HeaderCell>date Created</Table.HeaderCell>
                   <Table.HeaderCell>generalId</Table.HeaderCell>
 
@@ -137,6 +138,7 @@ export default class specification extends Component {
                       <Table.Cell>{data.dimensiKargo}</Table.Cell>
                       <Table.Cell>{data.jmlPintu}</Table.Cell>
                       <Table.Cell>{data.jmlKuris}</Table.Cell>
+                      <Table.Cell>{data.logActivity}</Table.Cell>
                       <Table.Cell>{data.createdAt}</Table.Cell>
                       <Table.Cell>{data.generalId}</Table.Cell>
                       <Table.Cell textAlign='center'>

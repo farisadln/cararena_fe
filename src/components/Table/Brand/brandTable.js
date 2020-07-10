@@ -26,7 +26,7 @@ export default class brandTable extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184:4000/api/brand/')
+    const API_URL = fetch('http://localhost:4000/api/brand/')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -39,7 +39,7 @@ export default class brandTable extends Component {
 
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184:4000/api/brand/' + id, {
+      fetch('http://localhost:4000/api/brand/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -86,7 +86,10 @@ export default class brandTable extends Component {
                     <Table.HeaderCell>Id</Table.HeaderCell>
                     <Table.HeaderCell>Brand Mobil</Table.HeaderCell>
                     <Table.HeaderCell>Logo Url</Table.HeaderCell>
+                    <Table.HeaderCell>Log Activity</Table.HeaderCell>
+                    
                     <Table.HeaderCell>Created At</Table.HeaderCell>
+                    
                     <Table.HeaderCell textAlign='center'>
                       Action
                     </Table.HeaderCell>
@@ -102,6 +105,7 @@ export default class brandTable extends Component {
                         <Table.Cell>
                         <Image src={data.logoUrl}></Image>
                         </Table.Cell>
+                        <Table.Cell>{data.logActivity}</Table.Cell>
                         <Table.Cell>{data.createdAt}</Table.Cell>
                         <Table.Cell textAlign='center'>
                           <Button

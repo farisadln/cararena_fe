@@ -24,7 +24,7 @@ export default class imgCar extends Component {
   }
 
   componentDidMount() {
-    const API_URL = fetch('http://139.162.28.184:4000/api/img')
+    const API_URL = fetch('http://localhost:4000/api/img')
 
     API_URL.then((res) => {
       if (res.status === 200) return res.json()
@@ -36,7 +36,7 @@ export default class imgCar extends Component {
   }
   deleteBrand(id) {
     if (window.confirm('Hapus neh?')) {
-      fetch('http://139.162.28.184:4000/api/img/' + id, {
+      fetch('http://localhost:4000/api/img/' + id, {
         method: 'DELETE',
         header: {
           Accept: 'application/json',
@@ -58,7 +58,7 @@ export default class imgCar extends Component {
               
               </Header.Subheader>
             </Header>
-            <Table celled fixed singleLine >
+            <Table celled compact definition >
               <Table.Header fullWidth>
                 <Table.Row>
 
@@ -81,6 +81,7 @@ export default class imgCar extends Component {
                   <Table.HeaderCell >Url Img1</Table.HeaderCell>
                   <Table.HeaderCell >Url Img2</Table.HeaderCell>
                   <Table.HeaderCell >Url Img3</Table.HeaderCell>
+                  <Table.HeaderCell>Log Activity</Table.HeaderCell>
                   <Table.HeaderCell >SpecId</Table.HeaderCell>
                   <Table.HeaderCell>Created At</Table.HeaderCell>
                   <Table.HeaderCell textAlign='center'>
@@ -97,6 +98,7 @@ export default class imgCar extends Component {
                       <Table.Cell >{data.img1}</Table.Cell>
                       <Table.Cell>{data.img2}</Table.Cell>
                       <Table.Cell>{data.img3}</Table.Cell>
+                      <Table.Cell>{data.logActivity}</Table.Cell>
                       <Table.Cell>{data.specificationId}</Table.Cell>
                       <Table.Cell>{data.createdAt}</Table.Cell>
                       <Table.Cell textAlign='center'>
